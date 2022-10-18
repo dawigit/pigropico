@@ -1,5 +1,5 @@
 # pigropico
-## PiGro for Raspberry Pi Pico W + 3.5Inch Display
+## PiGro for Raspberry Pi Pico W + Waveshare 3.5Inch Display
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
