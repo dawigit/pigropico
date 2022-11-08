@@ -36,7 +36,7 @@
 
 ## flash
 
-`sudo picotool load ./build/pigropicow.uf2 -x --bus 1 --address XX`
+`sudo picotool load ./pigropicow.uf2 -x --bus 1 --address XX`
 
 
 ## usage
