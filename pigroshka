@@ -1,0 +1,8 @@
+#!/bin/bash
+while true; do
+read -e -p "$(printf '\033[35m')pigro>$(printf '\033[39m')" shinput
+	history -s "$shinput"
+	reps=$(echo "$shinput" | sed "s/ /\//g")
+	#echo rep $reps
+	wget -O /dev/null -q http://pigropico/api/$reps
+done

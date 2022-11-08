@@ -4,6 +4,14 @@
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
 
+### news:
+- bug with timezone/hour fixed
+- shell script 'pigroshka' added so you can send commands ('set pwm1 40') via shell to the webserver [http://pigropico]
+- crc for rules added
+- improved save/flash handling
+- fixed minute button bug
+
+
 ## PiGro pico gpio:
 
 ### hih71
