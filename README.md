@@ -1,5 +1,5 @@
 # pigropico
-## PiGro for Raspberry Pi Pico W + Waveshare 3.5Inch Touch Display
+## PiGro for Raspberry Pi Pico / PicoW + Waveshare 3.5Inch Touch Display
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
@@ -9,30 +9,21 @@
 - shell script 'pigroshka' added so you can send commands ('set pwm1 40') via shell to the webserver [http://pigropico]
 - crc for rules added
 - improved save/flash handling
-- fixed minute button bug
 
 
-## PiGro pico gpio:
+## PiGro Pico / PicoW gpio:
 
-### hih71
+### I2C
 
-`I2C_SDA 26`
-`I2C_SCL 27`
+`I2C_SDA 0`
+`I2C_SCL 1`
 
-### pwm
+### PWM
 
 `PWM_0 2`
 `PWM_1 3`
 `PWM_2 4`
 `PWM_3 6`
-
-
-
-### ds18b20
-
-
-`ONE_WIRE_GPIO 14`
-
 
 ## flash
 
@@ -58,41 +49,14 @@
 ![save24](https://user-images.githubusercontent.com/26333559/196619801-8ce61b2a-6ac1-454f-8bb2-6046b4706e65.png)    SAVE
 
 
-- you can have two different wifi login / credentials which you can switch between (WIFI0/WIFI1)
 
-- PiGro web client at 'http://pigropico/' in your network
+- PiGro web client at 'http://pigropicow/' in your network
 
 - Switch back to PWM control by selecting the same icon again. So from 'RULES' to 'PWM' just press 'RULES' again
 
-## saving
-
-Saving data (thus 'flashing') is done after device boot.
-Like cleaning/preparing in a shop is done when that shop is still closed (for the public) early
-in the morning, but some workers are there.
-
-So a typical 'save' is done by: writing data to 'save ram', reboot/reset, copy 'save ram' to flash, continue regular operation.
-
-That's why every 'save' has to 'reboot' before.
-
-PiGro reads 'save ram', 'flash' and 'default save data' whenever the data read is corrupted somehow.
-
-
-## operation
-
-PiGro starts, checks for WIFI, connects to WIFI, gets 'Network Time' ntp (network time protocol)
-(and starts the web server)
-
-After receiving time, PiGro is 'READY' and screen turns black (screensaver, regular behaviour!)
- 
 ## images
 
-##### Raspberry Pi Pico       'pigropico.uf2' (soon)
-##### Raspberry Pi Pico W     'pigropicow.uf2'
+##### Raspberry Pi Pico/W     'pigropicow.uf2'
 
 
 ## 
-
-#### buggy, only uf2 for now...
-
-#### but it get's you through the winter
-
