@@ -5,25 +5,32 @@
 ## PiGro – horticulture easy
 
 ### news:
-- bug with timezone/hour fixed
-- shell script 'pigroshka' added so you can send commands ('set pwm1 40') via shell to the webserver [http://pigropico]
-- crc for rules added
-- improved save/flash handling
-
+- GUI reworked
+- pigsh bash script added (minicom , usb)
+- network memory leak fixed (http server)
+- virtual keyboard improved
+- sensors: aht15 / hih71
+- bug saving/loading rules
 
 ## PiGro Pico / PicoW gpio:
 
 ### I2C
 
 `I2C_SDA 0`
+
 `I2C_SCL 1`
+
 
 ### PWM
 
 `PWM_0 2`
+
 `PWM_1 3`
+
 `PWM_2 4`
+
 `PWM_3 6`
+
 
 ## flash
 
@@ -31,32 +38,29 @@
 
 
 ## usage
-![rules24](https://user-images.githubusercontent.com/26333559/196623838-79510492-9aed-47b7-8bc6-7f2174fc1dc5.png)   RULES
+![edit48x48](https://github.com/dawigit/pigropico/assets/26333559/99a31cb2-b893-4f6f-82ef-8f8601b44901)   Rules
 
-![config24](https://user-images.githubusercontent.com/26333559/196618347-d1fb8203-2787-4cb0-9d42-3082fc6b0d8a.png)  CREDENTIALS WIFI (Keyboard)
-
-![wifi24](https://user-images.githubusercontent.com/26333559/196618425-79aa8630-4e85-4013-9fb9-c2c08f3f62f6.png)    WIFI SELECT
-
-![clock24](https://user-images.githubusercontent.com/26333559/196618606-2ed1dd2b-7a65-4846-8d4d-a4f574acbfb3.png)   TIME (Timezone, 12H/24H)
-
-![tools24](https://user-images.githubusercontent.com/26333559/196619398-d48b66ca-5b77-4566-a103-9defaa326fe3.png)   no use atm
+![wifidis48x48](https://github.com/dawigit/pigropico/assets/26333559/4d874c6d-2ed0-4b96-b20e-08a684f10ddc) ![wificon48x48](https://github.com/dawigit/pigropico/assets/26333559/a518f5b7-ea87-4a4e-8be6-e934ab4daa40) WiFi (not) connected
 
 
-![config24](https://user-images.githubusercontent.com/26333559/196618347-d1fb8203-2787-4cb0-9d42-3082fc6b0d8a.png)  ROTATE180 (SCREEN)
+![configure48x48](https://github.com/dawigit/pigropico/assets/26333559/e3a5aab7-13dc-49c4-929a-2df01c2369fa) Configure
 
-![ok24](https://user-images.githubusercontent.com/26333559/196619621-8e86941a-4fa2-409e-bc22-eb723be753df.png)      WIFI0/WIFI1 SWITCH
+![rotate48x48](https://github.com/dawigit/pigropico/assets/26333559/0b4ef583-791b-4141-9388-43e726555af3) Rotate display
 
-![save24](https://user-images.githubusercontent.com/26333559/196619801-8ce61b2a-6ac1-454f-8bb2-6046b4706e65.png)    SAVE
+![save48x48](https://github.com/dawigit/pigropico/assets/26333559/7e8cbac0-a86e-43cb-8be9-88e274ca58e7) Save
 
 
 
-- PiGro web client at 'http://pigropicow/' in your network
+PicoW:
+- select WiFi network, enter credentials, CONNECT0, wait...
+- after a successfull connection a 'SAVE0' button appears
+- press it to save and restart PiGro
+- PiGro web client should be available at 'http://pigropicow/' in your network
 
-- Switch back to PWM control by selecting the same icon again. So from 'RULES' to 'PWM' just press 'RULES' again
 
 ## images
 
-##### Raspberry Pi Pico/W     'pigropicow.uf2'
+##### Raspberry Pi Pico/PicoW    'pigropicow.uf2'
 
 
 ## 
