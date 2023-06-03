@@ -10,7 +10,7 @@
 - network memory leak fixed (http server)
 - virtual keyboard improved
 - sensors: aht15 / hih71
-- bug saving/loading rules
+
 
 ## PiGro Pico / PicoW gpio:
 
