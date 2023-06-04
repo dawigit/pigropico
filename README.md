@@ -3,6 +3,9 @@
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
+![pigro](https://github.com/dawigit/pigropico/assets/26333559/90e35caf-ba92-40ad-8799-22c589a89b44)
+
+
 
 ### news:
 - GUI reworked
