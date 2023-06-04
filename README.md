@@ -10,6 +10,8 @@
 - network memory leak fixed (http server)
 - virtual keyboard improved
 - sensors: aht15 / hih71
+- editor fixed
+- press 'Rules Selector' (text) to create a new (empty) rule
 
 
 ## PiGro Pico / PicoW gpio:
