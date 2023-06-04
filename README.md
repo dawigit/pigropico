@@ -1,5 +1,5 @@
 # pigropico
-## PiGro for Raspberry Pi Pico / PicoW + Waveshare 3.5Inch Touch Display
+## PiGro for Raspberry Pi Pico / PicoW + Waveshare Pico-ResTouch-LCD-3.5
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
