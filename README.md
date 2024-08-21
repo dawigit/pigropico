@@ -5,9 +5,36 @@
 ## PiGro – horticulture easy
 ![pigro](https://github.com/dawigit/pigropico/assets/26333559/90e35caf-ba92-40ad-8799-22c589a89b44)
 
-
+### connect:
+- connect the Pico to a Linux machine (USB)
+- in one terminal (ttyACM0 depending on Linux distribution)
+ `minicom -o -D /dev/ttyACM0`
+- in another terminal
+ `pigsh 0`
 
 ### news:
+- time in rules can now be short and specific: `time8`, `time2:12PM`, `time22` 
+   `addrule time5 -> pwm1 60`
+  will create a rule, executed once, at 5 (AM)
+  `save` your rules when done
+
+- remember: time values never contain a ' ' space character! 
+  always: 'timeHH:MMxM-HH:MMxM'
+  xM is AM/PM
+  now, all except the first HH value can be omitted
+
+
+- new commands:
+  `set_country XX` set the wifi country code (to 'WORLDWIDE')
+  (check the end of this document for the country codes)
+  `liru` list rules (in RAM, `stat` shows the rules in 'SRAM')
+  `crules` check / test all rules
+  `crule 7` check / test rule number 7
+  `hostname pigro` set hostname to 'pigro'
+  `ssid0`/`cred0` set ssid and credentials (wifi)
+  `ssid1`/`cred1` same but for second (alternate) network
+  `stat_bu 3` print status for save backup slot #3 (0-31, rotating)
+- wifi country code in status
 - GUI reworked
 - pigsh bash script added (minicom , usb)
 - network memory leak fixed (http server)
@@ -68,4 +95,60 @@ PicoW:
 ##### Raspberry Pi Pico/PicoW    'pigropicow.uf2'
 
 
-## 
+
+## country codes (from the driver)
+(from `pico/pico-sdk/lib/cyw43-driver/src/cyw43_country.h`)
+####  Worldwide Locale (passive Ch12-14)
+WORLDWIDE         ('XX')
+AUSTRALIA         ('AU')
+AUSTRIA           ('AT')
+BELGIUM           ('BE')
+BRAZIL            ('BR')
+CANADA            ('CA')
+CHILE             ('CL')
+CHINA             ('CN')
+COLOMBIA          ('CO')
+CZECH_REPUBLIC    ('CZ')
+DENMARK           ('DK')
+ESTONIA           ('EE')
+FINLAND           ('FI')
+FRANCE            ('FR')
+GERMANY           ('DE')
+GREECE            ('GR')
+HONG_KONG         ('HK')
+HUNGARY           ('HU')
+ICELAND           ('IS')
+INDIA             ('IN')
+ISRAEL            ('IL')
+ITALY             ('IT')
+JAPAN             ('JP')
+KENYA             ('KE')
+LATVIA            ('LV')
+LIECHTENSTEIN     ('LI')
+LITHUANIA         ('LT')
+LUXEMBOURG        ('LU')
+MALAYSIA          ('MY')
+MALTA             ('MT')
+MEXICO            ('MX')
+NETHERLANDS       ('NL')
+NEW_ZEALAND       ('NZ')
+NIGERIA           ('NG')
+NORWAY            ('NO')
+PERU              ('PE')
+PHILIPPINES       ('PH')
+POLAND            ('PL')
+PORTUGAL          ('PT')
+SINGAPORE         ('SG')
+SLOVAKIA          ('SK')
+SLOVENIA          ('SI')
+SOUTH_AFRICA      ('ZA')
+SOUTH_KOREA       ('KR')
+SPAIN             ('ES')
+SWEDEN            ('SE')
+SWITZERLAND       ('CH')
+TAIWAN            ('TW')
+THAILAND          ('TH')
+TURKEY            ('TR')
+UK                ('GB')
+USA               ('US')
+
