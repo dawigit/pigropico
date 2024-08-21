@@ -13,27 +13,44 @@
  `pigsh 0`
 
 ### news:
-- time in rules can now be short and specific: `time8`, `time2:12PM`, `time22` 
+
+- (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
+
    `addrule time5 -> pwm1 60`
+
   will create a rule, executed once, at 5 (AM)
+
   `save` your rules when done
 
+
 - remember: time values never contain a ' ' space character! 
+
   always: 'timeHH:MMxM-HH:MMxM'
+
   xM is AM/PM
+
   now, all except the first HH value can be omitted
 
 
 - new commands:
   `set_country XX` set the wifi country code (to 'WORLDWIDE')
+
   (check the end of this document for the country codes)
+
   `liru` list rules (in RAM, `stat` shows the rules in 'SRAM')
+
   `crules` check / test all rules
+
   `crule 7` check / test rule number 7
+
   `hostname pigro` set hostname to 'pigro'
+
   `ssid0`/`cred0` set ssid and credentials (wifi)
+
   `ssid1`/`cred1` same but for second (alternate) network
+
   `stat_bu 3` print status for save backup slot #3 (0-31, rotating)
+
 - wifi country code in status
 - GUI reworked
 - pigsh bash script added (minicom , usb)
