@@ -33,6 +33,7 @@
 
 
 - new commands:
+  
   `set_country XX` set the wifi country code (to 'WORLDWIDE')
 
   (check the end of this document for the country codes)
