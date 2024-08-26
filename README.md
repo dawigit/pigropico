@@ -115,6 +115,8 @@ PicoW:
 
 ##### Raspberry Pi Pico/PicoW    'pigropicow.uf2'
 
+##### Raspberry Pi Pico2    'pico2_pigropicow.uf2'
+
 
 
 ## country codes (from the driver)
