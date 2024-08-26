@@ -14,6 +14,9 @@
 
 ### news:
 
+- PiGro for Pico2 - pico2_pigropicow.uf2
+
+
 - (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
 
    `addrule time5 -> pwm1 60`
