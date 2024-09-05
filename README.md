@@ -1,21 +1,43 @@
-# pigropico
-## PiGro for Raspberry Pi Pico / PicoW / Pico2 + Waveshare Pico-ResTouch-LCD-3.5
+# pigropico – PiGro for Raspberry Pi Pico
+
+## Pi Pico / PicoW (rp2040)
+## Pico2 (rp2350)
+## Waveshare Pico-ResTouch-LCD-3.5
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
 ![pigro](https://github.com/dawigit/pigropico/assets/26333559/90e35caf-ba92-40ad-8799-22c589a89b44)
 
 ### connect:
-- connect the Pico to a Linux machine (USB)
+- connect the Pico to a Linux machine (USB) / serial port 
 - in one terminal (ttyACM0 depending on Linux distribution)
- `minicom -o -D /dev/ttyACM0`
-- in another terminal
- `pigsh 0`
 
+  `minicom -o -D /dev/ttyACM0`
+
+- in another terminal
+
+  `pigsh 0`
+
+- to connect via serial (/dev/ttyS0) 
+
+  `spigsh 0` 
+ 
+ 
+- to connect via web/api
+
+  `pigroshka 192.168.171.2` 
+
+ remember to prepend 'set' in 'pigroshka'
+ 
+  `set pwm0 10` 
+  
 ### news:
 
-- PiGro for Pico2 - pico2_pigropicow.uf2
-
+- PiGro for Pico2 - pico2_pigropicow.uf2 (rp2350)
+- Pico2 webserver (USB)
+  `http://192.168.171.2`
+  
+  
 
 - (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
 
@@ -36,6 +58,12 @@
 
 
 - new commands:
+
+  `posixtime TIMESTRING` set the timestring ("CEST-1CET,M3.5.0/2:00:00,M10.5.0/3:00:00")
+
+   defaults to 'Europe/Berlin'
+
+   "EST5EDT4,M3.2.0/02:00,M11.1.0/02:00" 'America/New York'
   
   `set_country XX` set the wifi country code (to 'WORLDWIDE')
 
@@ -65,13 +93,24 @@
 - press 'Rules Selector' (text) to create a new (empty) rule
 
 
-## PiGro Pico / PicoW gpio:
+## PiGro Pico / PicoW / Pico2 gpio:
 
-### I2C
+### I2C Pico/Pico_w
 
 `I2C_SDA 0`
 
 `I2C_SCL 1`
+
+### I2C Pico_2
+
+`UART TX 0`
+
+`UART RX 1`
+
+`I2C_SDA 26`
+
+`I2C_SCL 27`
+
 
 
 ### PWM
