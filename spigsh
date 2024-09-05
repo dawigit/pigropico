@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ -z $1 ]; then
+	echo "usage: pigsh 0"
+	echo "to connect to /dev/ttyS0"
+	exit
+fi
+echo " " > /dev/ttyS$1
+while true; do
+read -e -p "pigsh>" shinput
+	history -s "$shinput"
+	echo $shinput > /dev/ttyS$1
+done
