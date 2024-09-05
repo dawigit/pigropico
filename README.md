@@ -1,7 +1,7 @@
 # pigropico – PiGro for Raspberry Pi Pico
 
-## Pi Pico / PicoW (rp2040)
-## Pico2 (rp2350)
+## Pico / PicoW (rp2040)
+## Pico 2 (rp2350)
 ## Waveshare Pico-ResTouch-LCD-3.5
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
