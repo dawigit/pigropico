@@ -23,22 +23,26 @@
   `spigsh 0` 
  
  
-- to connect via web/api
+- to connect via web/api 
 
-  `pigroshka 192.168.171.2` 
+  `pigroshka 192.168.171.2` (Pico 2)
+
+  `pigroshka YOUR-PIGRO-IP` (Pico W)
+
 
  remember to prepend 'set' in 'pigroshka'
  
   `set pwm0 10` 
+
+
   
 ### news:
 
 - PiGro for Pico2 - pico2_pigropicow.uf2 (rp2350)
 - Pico2 webserver (USB)
   `http://192.168.171.2`
+- PiGro Pico2 no syslog, only fixed POSIX time string
   
-  
-
 - (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
 
    `addrule time5 -> pwm1 60`
@@ -46,7 +50,6 @@
   will create a rule, executed once, at 5 (AM)
 
   `save` your rules when done
-
 
 - remember: time values never contain a ' ' space character! 
 
@@ -56,15 +59,41 @@
 
   now, all except the first HH value can be omitted
 
+- WiFi country code in status
+- GUI reworked
+- pigsh bash script added (minicom , usb)
+- network memory leak fixed (http server)
+- virtual keyboard improved
+- sensors: aht15 / hih71
+- editor fixed
+- press 'Rules Selector' (text) to create a new (empty) rule
 
-- new commands:
+### new commands:
 
-  `posixtime TIMESTRING` set the timestring ("CEST-1CET,M3.5.0/2:00:00,M10.5.0/3:00:00")
+  `posixtime CEST-1CET,M3.5.0/2:00:00,M10.5.0/3:00:00` set the timestring (Pico2)
 
    defaults to 'Europe/Berlin'
 
-   "EST5EDT4,M3.2.0/02:00,M11.1.0/02:00" 'America/New York'
-  
+   'tz_list' contains a list of names / posix time strings (pcodes)
+
+    `grep Shanghai tz_list` -> `"Asia/Shanghai","CST-8"`
+
+    `grep Belgrade tz_list` -> `"Europe/Belgrade","CET-1CEST,M3.5.0,M10.5.0/3"`
+
+    `grep New_York tz_list` -> `"America/New_York","EST5EDT,M3.2.0,M11.1.0"`
+
+    `grep Kamchatka tz_list` -> `"Asia/Kamchatka","<+12>-12"`
+
+    to adjust your time to New York (in pigsh/spigsh) 
+
+    `posixtime EST5EDT,M3.2.0,M11.1.0`
+
+    then -> `save` to reset and save
+
+  tz_list was generated with https://github.com/nayarsystems/posix_tz_db
+
+  `syslog LALA` to write 'LALA' to the syslog server
+
   `set_country XX` set the wifi country code (to 'WORLDWIDE')
 
   (check the end of this document for the country codes)
@@ -83,19 +112,11 @@
 
   `stat_bu 3` print status for save backup slot #3 (0-31, rotating)
 
-- wifi country code in status
-- GUI reworked
-- pigsh bash script added (minicom , usb)
-- network memory leak fixed (http server)
-- virtual keyboard improved
-- sensors: aht15 / hih71
-- editor fixed
-- press 'Rules Selector' (text) to create a new (empty) rule
 
 
 ## PiGro Pico / PicoW / Pico2 gpio:
 
-### I2C Pico/Pico_w
+### I2C Pico / PicoW
 
 `I2C_SDA 0`
 
@@ -103,15 +124,15 @@
 
 ### I2C Pico_2
 
-`UART TX 0`
-
-`UART RX 1`
-
 `I2C_SDA 26`
 
 `I2C_SCL 27`
 
+## UART Pico_2
 
+`UART TX 0`
+
+`UART RX 1`
 
 ### PWM
 
@@ -127,6 +148,8 @@
 ## flash
 
 `sudo picotool load ./pigropicow.uf2 -x --bus 1 --address XX`
+
+Or: just drag'n'drop pigropicow.uf2 / pico2_pigropicow.uf2 to your drive
 
 
 ## usage
@@ -154,13 +177,13 @@ PicoW:
 
 ##### Raspberry Pi Pico/PicoW    'pigropicow.uf2'
 
-##### Raspberry Pi Pico2    'pico2_pigropicow.uf2'
+##### Raspberry Pi Pico 2    'pico2_pigropicow.uf2'
 
 
 
 ## country codes (from the driver)
 (from `pico/pico-sdk/lib/cyw43-driver/src/cyw43_country.h`)
-####  Worldwide Locale (passive Ch12-14)
+
 WORLDWIDE         ('XX')
 AUSTRALIA         ('AU')
 AUSTRIA           ('AT')
@@ -214,3 +237,39 @@ TURKEY            ('TR')
 UK                ('GB')
 USA               ('US')
 
+
+## configure syslog remote logging:
+
+-  create dir '/var/log/remote'and set owner/rights so it's accessible by syslog
+-  ubuntu:
+  ```
+  sudo mkdir /var/log/remote
+  sudo chown -R syslog:adm /var/log/remote
+  sudo chmod 755 /var/log/remote
+  ```
+- install rsyslog `sudo apt install rsyslog`
+  
+- edit '/etc/rsyslog.conf' `sudo nano /etc/rsyslog.conf`
+
+- enable tcp/udp logging by removing the prepending hashes '#' at module and input
+```
+# provides UDP syslog reception
+module(load="imudp")
+input(type="imudp" port="514")
+
+# provides TCP syslog reception
+module(load="imtcp")
+input(type="imtcp" port="514")
+```
+-  copy this snippet to the end of your '/etc/rsyslog.conf'
+  
+  ```
+  $template remote, "/var/log/remote/%HOSTNAME%.log"
+  if ($fromhost-ip != "127.0.0.1" ) then -?remote\n
+  & stop
+  ```
+
+- restart rsyslog `sudo systemctl restart rsyslog`
+- and do a status check `sudo systemctl status rsyslog`
+- in a terminal `tail -n50 -F /var/log/remote/pigropicow.log` (or whatever your hostname is)
+  
