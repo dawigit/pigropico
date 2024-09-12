@@ -40,9 +40,13 @@
   
 ### news:
 
+- new icons in web ui from https://www.svgrepo.com/
 - PiGro for Pico2 - pico2_pigropicow.uf2 (rp2350)
 - Pico2 webserver (USB)
   `http://192.168.171.2`
+  or
+  `https://192.168.171.2`
+
 - PiGro Pico2 no syslog, only fixed POSIX time string
   
 - (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
@@ -130,7 +134,7 @@
 
 `I2C_SCL 27`
 
-## UART Pico_2
+### UART Pico_2
 
 `UART TX 0`
 
@@ -145,6 +149,12 @@
 `PWM_2 4`
 
 `PWM_3 6`
+
+
+to see the variant (rp2350/rp2040) and the pins you can use 'picotool'
+
+`picotool info pigropicow.uf2` 
+
 
 
 ## flash
