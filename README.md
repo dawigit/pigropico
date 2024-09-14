@@ -270,17 +270,17 @@ USA               ('US')
 
 - `sudo nano /etc/ntp.conf` for usb network (network/ip fixed)
   ```
-	restrict 192.168.171.0 mask 255.255.255.0
-	restrict 192.168.171.1 
-	broadcast 192.168.171.255
+  restrict 192.168.171.0 mask 255.255.255.0
+  restrict 192.168.171.1 
+  broadcast 192.168.171.255
   ```
 
 - for a wireless network at 192.168.2.0/24 (or whatever you have)
 
   ```
-        restrict 192.168.2.0 mask 255.255.255.0
-        restrict 192.168.2.1 
-        broadcast 192.168.2.255
+  restrict 192.168.2.0 mask 255.255.255.0
+  restrict 192.168.2.1 
+  broadcast 192.168.2.255
   ```
 
 - restart ntp service and check status
