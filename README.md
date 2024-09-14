@@ -266,6 +266,30 @@ UK                ('GB')
 USA               ('US')
 
 
+## configure sntp:
+
+- `sudo nano /etc/ntp.conf` for usb network (network/ip fixed)
+  ```
+	restrict 192.168.171.0 mask 255.255.255.0
+	restrict 192.168.171.1 
+	broadcast 192.168.171.255
+  ```
+
+- for a wireless network at 192.168.2.0/24 (or whatever you have)
+
+  ```
+        restrict 192.168.2.0 mask 255.255.255.0
+        restrict 192.168.2.1 
+        broadcast 192.168.2.255
+  ```
+
+- restart ntp service and check status
+
+- `sudo systemctl restart ntp`
+
+- `sudo systemctl status ntp`
+
+
 ## configure syslog remote logging:
 
 -  create dir '/var/log/remote'and set owner/rights so it's accessible by syslog
