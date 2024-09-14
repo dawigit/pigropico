@@ -82,7 +82,7 @@
 
 ### new commands:
 
-  `netip` get USB network ip address
+  `netip` get WiFi network ip address
 
   `usbip` get USB network ip address
 
