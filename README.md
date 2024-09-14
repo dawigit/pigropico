@@ -45,6 +45,7 @@
   
 ### news:
 
+- syslog for Pico2
 - new icons in web ui from https://www.svgrepo.com/
 - PiGro for Pico2 - pico2_pigropicow.uf2 (rp2350)
 - Pico2 webserver (USB)
@@ -52,7 +53,7 @@
   or
   `https://192.168.171.2`
 
-- PiGro Pico2 no syslog, only fixed POSIX time string
+- PiGro Pico2 only fixed POSIX time string
   
 - (non-range) time in rules: `time8`, `time2:12PM`, `time22` 
 
@@ -81,7 +82,15 @@
 
 ### new commands:
 
+  `netip` get USB network ip address
+
+  `usbip` get USB network ip address
+
+  `tlog LALA` to write 'LALA' to the syslog server (via TCP)
+
   `posixtime CEST-1CET,M3.5.0/2:00:00,M10.5.0/3:00:00` set the timestring (Pico2)
+
+  `time 13:14:15` set time (24h only)
 
    defaults to 'Europe/Berlin'
 
@@ -103,7 +112,9 @@
 
   tz_list was generated with https://github.com/nayarsystems/posix_tz_db
 
-  `syslog LALA` to write 'LALA' to the syslog server
+  `syslog LALA` to write 'LALA' to the syslog server (via UDP)
+
+  `tlog LALA` to write 'LALA' to the syslog server (via TCP)
 
   `set_country XX` set the wifi country code (to 'WORLDWIDE')
 
