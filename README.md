@@ -8,7 +8,12 @@
 ## PiGro – horticulture easy
 ![pigro](https://github.com/dawigit/pigropico/assets/26333559/90e35caf-ba92-40ad-8799-22c589a89b44)
 
+### (Pico 2 only!)
 ![PiGro_pico2_https](https://github.com/user-attachments/assets/e29e8056-54bd-452e-b514-05cbfa885bdd)
+
+### (Pico_w)
+![PiGro_pico2_http](https://github.com/user-attachments/assets/1b9e97d7-aa93-4f07-9d29-a84e96e3db92)
+
 
 ### connect:
 - connect the Pico to a Linux machine (USB) / serial port 
