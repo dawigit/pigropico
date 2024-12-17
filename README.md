@@ -1,14 +1,14 @@
 # pigropico – PiGro for Raspberry Pi Pico
 
 ## Pico / PicoW (rp2040)
-## Pico 2 (rp2350)
+## Pico2 W (rp2350)
 ## Waveshare Pico-ResTouch-LCD-3.5
 
 ![pigrosm](https://user-images.githubusercontent.com/26333559/196528851-25c66190-ff87-4bd0-a2b7-fbb32330b3c8.png)
 ## PiGro – horticulture easy
 ![pigro](https://github.com/dawigit/pigropico/assets/26333559/90e35caf-ba92-40ad-8799-22c589a89b44)
 
-### (Pico 2 only!)
+### (Pico2_W)
 ![PiGro_pico2_https](https://github.com/user-attachments/assets/e29e8056-54bd-452e-b514-05cbfa885bdd)
 
 ### (Pico_w)
@@ -45,6 +45,7 @@
   
 ### news:
 
+- pigropico2w.uf2 Pico2_W
 - syslog for Pico2
 - new icons in web ui from https://www.svgrepo.com/
 - PiGro for Pico2 - pico2_pigropicow.uf2 (rp2350)
